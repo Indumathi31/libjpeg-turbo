@@ -1220,6 +1220,16 @@ DLLEXPORT int tjDecompress2(tjhandle handle, const unsigned char *jpegBuf,
 
 
 /**
+ * Decompress a subregion of JPEG image to an RGB, grayscale, or CMYK image.
+ */
+
+DLLEXPORT int tjDecompress2_partial(tjhandle handle, const unsigned char *jpegBuf,
+                            unsigned long jpegSize, unsigned char *dstBuf,
+                            int width, int pitch, int height, int pixelFormat,
+                            int flags, unsigned int x1, unsigned int y1, 
+                            unsigned int crop_width, unsigned int crop_height);
+
+/**
  * Decompress a JPEG image to a YUV planar image.  This function performs JPEG
  * decompression but leaves out the color conversion step, so a planar YUV
  * image is generated instead of an RGB image.
