@@ -9,6 +9,7 @@ TURBOJPEG_1.0
     tjDecompress;
     tjDestroy;
     tjGetErrorStr;
+    tjDecompress2_partial;
   local:
     *;
 };
