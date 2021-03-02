@@ -1240,7 +1240,7 @@ DLLEXPORT tjscalingfactor *tjGetScalingFactors(int *numscalingfactors)
 DLLEXPORT int tjDecompress2_partial(tjhandle handle, const unsigned char *jpegBuf,
                             unsigned long jpegSize, unsigned char *dstBuf,
                             int width, int pitch, int height, int pixelFormat,
-                            int flags, unsigned int crop_x, unsigned int crop_y,
+                            int flags, unsigned int *crop_x_diff, unsigned int crop_x, unsigned int crop_y,
                             unsigned int crop_width, unsigned int crop_height)
 {
   JSAMPROW *row_pointer = NULL;
@@ -1286,6 +1286,7 @@ DLLEXPORT int tjDecompress2_partial(tjhandle handle, const unsigned char *jpegBu
   }
 
   jpeg_crop_scanline(dinfo, &crop_x, &crop_width);
+  *crop_x_diff = crop_x;
 
   if (pitch == 0) pitch = dinfo->output_width * tjPixelSize[pixelFormat];
 

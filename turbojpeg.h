@@ -1225,7 +1225,7 @@ DLLEXPORT int tjDecompress2(tjhandle handle, const unsigned char *jpegBuf,
 DLLEXPORT int tjDecompress2_partial(tjhandle handle, const unsigned char *jpegBuf,
                             unsigned long jpegSize, unsigned char *dstBuf,
                             int width, int pitch, int height, int pixelFormat,
-                            int flags, unsigned int x1, unsigned int y1, 
+                            int flags, unsigned int *crop_x_diff, unsigned int x1, unsigned int y1,
                             unsigned int crop_width, unsigned int crop_height);
 
 
